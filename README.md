@@ -16,7 +16,8 @@ latexmk -pdf report.tex     # or: pdflatex report && bibtex report && pdflatex r
 ```
 
 The template compiles with pdfLaTeX and BibTeX only — no shell-escape, no
-external tooling — so it also builds unchanged on Overleaf. Output is
+external tooling, and no dependency on anything installed outside the repo —
+so it builds unchanged on any standard TeX installation. Output is
 `report.pdf`, which is git-ignored.
 
 ## Layout

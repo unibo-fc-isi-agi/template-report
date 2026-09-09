@@ -8,7 +8,7 @@ Conventions and traps for this repository. Reasoning that a *reader* needs is in
 A student-facing LaTeX **template**, not a document. Two consequences:
 
 - Keep the surface small. Every package added here is a package a student may
-  have to debug on Overleaf or in TeXShop.
+  have to debug on whatever TeX installation they happen to use.
 - Prose in the template is *instruction to the student*, and belongs in a
   `\guidance{…}` box so `\templateguidanceoff` can remove it. Do not write
   instructions as ordinary body text.
