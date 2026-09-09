@@ -37,9 +37,14 @@ These were left rather than guessed:
 1. **Whether to create the GitLab project at all**, and whether the
    GitLab-primary/GitHub-mirror arrangement of his other repos applies here. A
    student-facing template may want to be public, unlike `ia2627-slides`.
-2. **CI.** `.gitlab-ci.yml` is written but *unverified*: whether DISI GitLab
-   offers runners to this namespace is unknown, and an always-red pipeline in a
-   template students copy is worse than no pipeline. Delete it or verify it.
+2. ~~**CI.**~~ Settled 2026-09-09: `.gitlab-ci.yml` was deleted. The instance
+   does have an online shared runner (`RunnerZero`, id 1, `instance_type`, takes
+   untagged jobs), but its *executor* could not be confirmed without an API
+   token, and `image:` only works on a Docker/Kubernetes one. The deciding
+   argument was not the unknown: this is a template students copy, so a broken
+   pipeline would go red in their forks, over a PDF that builds locally in one
+   command. If the course later wants a published PDF, that belongs in the
+   teacher's copy, not in the students' template.
 3. **Language.** Written in British English, following the decks. If students
    report in Italian, `style.sty` needs `babel` switched.
 4. **Course policy the template hints at but does not state**: group size,
