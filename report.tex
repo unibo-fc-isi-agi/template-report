@@ -35,13 +35,13 @@ During the preparation of this work, the author(s) used [NAME THE TOOL OR SERVIC
 After using it, the author(s) reviewed and edited the content as needed, and take(s) full responsibility for the content of this report and of the artefacts it describes.
 
 \begin{guidance}
-Keep this section, filled in, if any tool or service --- generative or otherwise --- contributed to the work or to the report. Delete it entirely if none did. Declaring is not penalised; failing to declare is.
+Keep this section, filled in, if any tool or service – generative or otherwise — contributed to the work or to the report. Delete it entirely if none did. Declaring is not penalised; failing to declare is.
 \end{guidance}
 
 \begin{guidance}
 \section*{How to use this template}
 
-This is the report for the \emph{optional project} of \coursetitlelong{} \academicyear{}. The project is worth up to 6/30, it assesses \emph{technical} knowledge, it must cover or follow from a specific topic of the course, and it must be agreed with the teacher beforehand --- see \url{\apiceprojects}.
+This is the report for the \emph{optional project} of \coursetitlelong{} \academicyear{}. The project is worth up to 6/30, it assesses \emph{technical} knowledge, it must cover or follow from a specific topic of the course, and it must be agreed with the teacher beforehand – see \url{\apiceprojects}.
 
 A project may be \textbf{theoretical}, \textbf{technological} or \textbf{methodological}, and the three do not fill this report in the same way:
 %
@@ -60,7 +60,7 @@ When the report is written, uncomment \texttt{\textbackslash templateguidanceoff
 \begin{itemize}
   \item \textbf{Cite} with \texttt{\textbackslash cite}, giving the BibTeX key of an entry of \texttt{bib/references.bib}, as in \cite{rao-agentspeak96}. Ready-made entries for most computer science papers are on \href{https://dblp.org/}{DBLP}; entries for the papers of the course are on \href{https://apice.unibo.it/}{APICe}.
 
-  \item \textbf{Float} figures, tables and listings: put them in a \texttt{figure} or \texttt{lstlisting} environment and let \LaTeX{} place them. Do \emph{not} write placement hints such as \texttt{[h]} or \texttt{[h!]}. Label them, and reference the label with \texttt{\textbackslash cref} --- as in \cref{fig:universe} and \cref{lst:snippet} --- rather than writing ``the figure below''. Figures go in \texttt{img/}, code in \texttt{listings/}.
+  \item \textbf{Float} figures, tables and listings: put them in a \texttt{figure} or \texttt{lstlisting} environment and let \LaTeX{} place them. Do \emph{not} write placement hints such as \texttt{[h]} or \texttt{[h!]}. Label them, and reference the label with \texttt{\textbackslash cref} – as in \cref{fig:universe} and \cref{lst:snippet} – rather than writing ``the figure below''. Figures go in \texttt{img/}, code in \texttt{listings/}.
 
   \item \textbf{Never break a line} with \texttt{\textbackslash\textbackslash} or \texttt{\textbackslash newline}. Leave a blank line to start a new paragraph; the indentation that follows is deliberate, and is how \LaTeX{} marks the paragraph break.
 
@@ -86,7 +86,7 @@ When the report is written, uncomment \texttt{\textbackslash templateguidanceoff
 
 \begin{guidance}
 \begin{itemize}
-  \item Which \textbf{kind} of project is this --- theoretical, technological, methodological? Say so explicitly, in the first lines.
+  \item Which \textbf{kind} of project is this – theoretical, technological, methodological? Say so explicitly, in the first lines.
 
   \item Which \textbf{topic of the course} does it cover, or follow from?
 
@@ -97,7 +97,7 @@ When the report is written, uncomment \texttt{\textbackslash templateguidanceoff
     \item for a \emph{methodological} one: which practice, and whose?
   \end{itemize}
 
-  \item Why is an \textbf{agent-oriented} reading the right one here? If the problem could be stated without agents, say why agents still earn their place --- or reconsider the project.
+  \item Why is an \textbf{agent-oriented} reading the right one here? If the problem could be stated without agents, say why agents still earn their place – or reconsider the project.
 
   \item What is deliberately \textbf{out of scope}?
 \end{itemize}
@@ -110,7 +110,7 @@ When the report is written, uncomment \texttt{\textbackslash templateguidanceoff
 \begin{itemize}
   \item State the objectives so that they can be \emph{checked}, and number them: they are referred to from \Cref{sec:validation}.
 
-  \item Give each objective an \textbf{acceptance criterion} --- what would count as having met it, decided \emph{now} rather than after the fact.
+  \item Give each objective an \textbf{acceptance criterion} – what would count as having met it, decided \emph{now} rather than after the fact.
 
   \item Which \textbf{artefacts} will be delivered? An argument, a model, a proof, a program, a corpus of experiments, a method, a guideline?
 
@@ -137,26 +137,26 @@ When the report is written, uncomment \texttt{\textbackslash templateguidanceoff
 \label{sec:features}
 
 \begin{guidance}
-Argue which of the following are relevant to your project \emph{and which are not} --- the exclusions matter as much as the inclusions, and a feature dismissed with a reason is a sign the design was thought through. Whatever you claim here is what \Cref{sec:contribution} must deliver on.
+Argue which of the following are relevant to your project \emph{and which are not} – the exclusions matter as much as the inclusions, and a feature dismissed with a reason is a sign the design was thought through. Whatever you claim here is what \Cref{sec:contribution} must deliver on.
 
 \begin{itemize}
-  \item \textbf{autonomy and agency} --- in what sense is your entity an \emph{agent} rather than an object or a process? What does it decide by itself?
+  \item \textbf{autonomy and agency} – in what sense is your entity an \emph{agent} rather than an object or a process? What does it decide by itself?
 
-  \item \textbf{goal-directedness, and mental state} --- are beliefs, desires and intentions explicit in the model? Does the agent deliberate, or merely react?
+  \item \textbf{goal-directedness, and mental state} – are beliefs, desires and intentions explicit in the model? Does the agent deliberate, or merely react?
 
-  \item \textbf{reactivity and situatedness} --- what is the \emph{environment}? How does the agent perceive it and act upon it? Is the environment itself modelled as a first-class abstraction?
+  \item \textbf{reactivity and situatedness} – what is the \emph{environment}? How does the agent perceive it and act upon it? Is the environment itself modelled as a first-class abstraction?
 
-  \item \textbf{sociality, interaction and coordination} --- how many agents, and how do they interact? Which coordination model or medium --- message passing, tuple spaces, protocols? Who governs the interaction?
+  \item \textbf{sociality, interaction and coordination} – how many agents, and how do they interact? Which coordination model or medium – message passing, tuple spaces, protocols? Who governs the interaction?
 
-  \item \textbf{reasoning and inference} --- is reasoning symbolic, sub-symbolic or hybrid? Which logic, and why that one? What is decidable, and at what cost?
+  \item \textbf{reasoning and inference} – is reasoning symbolic, sub-symbolic or hybrid? Which logic, and why that one? What is decidable, and at what cost?
 
-  \item \textbf{knowledge and truth} --- how is knowledge represented, and what is its epistemic status? What happens when beliefs turn out false, or when two agents disagree?
+  \item \textbf{knowledge and truth} – how is knowledge represented, and what is its epistemic status? What happens when beliefs turn out false, or when two agents disagree?
 
-  \item \textbf{learning and adaptation} --- does anything change over time as a result of experience? Distinguish adaptation from mere configuration.
+  \item \textbf{learning and adaptation} – does anything change over time as a result of experience? Distinguish adaptation from mere configuration.
 
-  \item \textbf{openness and heterogeneity} --- can agents join or leave? Are they built by different parties, on different technologies, with different interests?
+  \item \textbf{openness and heterogeneity} – can agents join or leave? Are they built by different parties, on different technologies, with different interests?
 
-  \item \textbf{organisation and norms} --- are there roles, institutions, obligations or prohibitions? What happens when a norm is violated?
+  \item \textbf{organisation and norms} – are there roles, institutions, obligations or prohibitions? What happens when a norm is violated?
 \end{itemize}
 \end{guidance}
 
@@ -182,11 +182,11 @@ Whatever the kind, report \textbf{why} each choice was made, against the feature
 \emph{Technological projects.} Keep this technology-free as far as it will go: the design should survive a change of language or framework.
 %
 \begin{itemize}
-  \item \textbf{structure} --- which entities are modelled, and which of them are agents? Class diagrams, ontologies, the domain vocabulary.
-  \item \textbf{interaction} --- protocols, sequence or activity diagrams, the coordination medium and its primitives.
-  \item \textbf{behaviour} --- what each agent does: state diagrams, plan libraries, decision rules.
-  \item \textbf{architecture} --- how the parts are organised into modules and distributed over nodes.
-  \item \textbf{corner cases} --- failure detection, recovery, error reporting, graceful shutdown. What does an agent do when the environment lies to it?
+  \item \textbf{structure} – which entities are modelled, and which of them are agents? Class diagrams, ontologies, the domain vocabulary.
+  \item \textbf{interaction} – protocols, sequence or activity diagrams, the coordination medium and its primitives.
+  \item \textbf{behaviour} – what each agent does: state diagrams, plan libraries, decision rules.
+  \item \textbf{architecture} – how the parts are organised into modules and distributed over nodes.
+  \item \textbf{corner cases} – failure detection, recovery, error reporting, graceful shutdown. What does an agent do when the environment lies to it?
 \end{itemize}
 \end{guidance}
 
@@ -194,7 +194,7 @@ Whatever the kind, report \textbf{why} each choice was made, against the feature
 \label{sec:implementation}
 
 \begin{guidance}
-\emph{Technological projects.} Only what is interesting or non-trivial --- the points where the design met resistance --- plus the technologies adopted and why. Where generated documentation exists, reference it instead of repeating it.
+\emph{Technological projects.} Only what is interesting or non-trivial – the points where the design met resistance – plus the technologies adopted and why. Where generated documentation exists, reference it instead of repeating it.
 \end{guidance}
 
 \section{Validation}
@@ -204,9 +204,9 @@ Whatever the kind, report \textbf{why} each choice was made, against the feature
 State the criterion \emph{before} the evidence, and tie it back to the numbered objectives of \Cref{sec:objectives}.
 %
 \begin{itemize}
-  \item \emph{theoretical} --- the proofs, or the arguments and the objections they answer. Which claims remain conjectural?
-  \item \emph{technological} --- tests and their rationale: what was tested, how it was automated, how to run it, and which objective each test speaks to. Report how many pass out of how many, and cover the corner cases.
-  \item \emph{methodological} --- the case the method was applied to, and what applying it actually showed.
+  \item \emph{theoretical} – the proofs, or the arguments and the objections they answer. Which claims remain conjectural?
+  \item \emph{technological} – tests and their rationale: what was tested, how it was automated, how to run it, and which objective each test speaks to. Report how many pass out of how many, and cover the corner cases.
+  \item \emph{methodological} – the case the method was applied to, and what applying it actually showed.
 \end{itemize}
 
 An honest negative result, explained, is worth more than a claim the evidence does not support.
@@ -216,7 +216,7 @@ An honest negative result, explained, is worth more than a claim the evidence do
 \label{sec:deployment}
 
 \begin{guidance}
-\emph{Technological projects only --- delete this section otherwise.}
+\emph{Technological projects only – delete this section otherwise.}
 %
 How to install and launch the software on a machine with nothing on it: every prerequisite with its version, every configuration step, and the expected outcome of each. Then show it in use, with at least one worked example per scenario.
 \end{guidance}
@@ -225,7 +225,7 @@ How to install and launch the software on a machine with nothing on it: every pr
 \label{sec:selfevaluation}
 
 \begin{guidance}
-\emph{Group projects only --- for an individual project, a short paragraph is enough.}
+\emph{Group projects only – for an individual project, a short paragraph is enough.}
 %
 One subsection per member. Each member describes their own role and contribution as objectively as they can, and assesses the strengths and the weaknesses of the result. Each member is responsible only for their own subsection.
 \end{guidance}
@@ -234,7 +234,7 @@ One subsection per member. Each member describes their own role and contribution
 \label{sec:conclusions}
 
 \begin{guidance}
-What was done, what was not done and why, and what you learned --- including what you would do differently.
+What was done, what was not done and why, and what you learned – including what you would do differently.
 \end{guidance}
 
 \section{Future works}
