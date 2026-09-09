@@ -95,8 +95,8 @@ Two consequences worth knowing:
 
 ## The bibliography
 
-`references.bib` holds two entries, copied from the course bibliography as
-worked examples of the house format: hand-maintained, stable citation keys, and
+`references.bib` holds two entries, kept as worked examples of the house
+format: hand-maintained, stable citation keys, and
 an `apice` field cross-referencing the entry into APICe. Replace them.
 
 Two traps live here, both of which cost a build during setup:

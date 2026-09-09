@@ -23,8 +23,8 @@ A student-facing LaTeX **template**, not a document. Two consequences:
   traps here, state to `.ai/HANDOFF.md`.
 - Keep the `%%%% … by Andrea Omicini <mailto:…>` header on every `.tex`/`.sty`.
 - `references.bib` is **hand-maintained**. Never wire it to a reference manager,
-  and never invent an entry: copy from the course bibliography
-  (`ia2627-slides/bib/ia.bib`) and keep the key and the `apice` field.
+  and never invent an entry — transcribe it from the source, keeping a stable
+  citation key and the `apice` cross-reference field.
 - Markdown must pass markdownlint cleanly before the work is called done.
 
 ## The guidance environment

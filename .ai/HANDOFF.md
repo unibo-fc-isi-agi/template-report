@@ -23,10 +23,9 @@ to the front; self-evaluation for group work; future works split out.
 
 The new **Relevant agent and MAS features** section is the substantive addition,
 and has no counterpart in either source. Its nine features follow the vocabulary
-of the course as it stands in the deck sources — BDI, computational logic and
-logic programming, the Linda coordination primitives, the treatment of truth —
-and only three decks exist so far, so **the list is provisional** and should be
-revised as the course settles.
+of the course — BDI, computational logic and logic programming, the Linda
+coordination primitives, the treatment of truth — as it stands today, so **the
+list is provisional** and should be revised as the course settles.
 
 `\guidance` became an environment (`comment` package) so it could hold lists and
 floats. Note the trap recorded in `CLAUDE.md`: a heading whose whole body is
@@ -47,8 +46,8 @@ Written new: `report.tex`, `style.sty`, `course.sty`, `references.bib`,
 The substantive change is the **section skeleton**. The source template is
 shaped as a software-engineering pipeline — requirements, design, deployment,
 tests — which fits only one of the three kinds of project the course admits.
-The A0 deck says a project "may concern theoretical / technological /
-methodological aspects", so the skeleton was rebuilt as a common spine with
+The course admits projects concerning theoretical, technological or
+methodological aspects, so the skeleton was rebuilt as a common spine with
 per-kind guidance, and the software-only sections are marked as such.
 
 ## Open — needs Andrea
@@ -62,7 +61,7 @@ These were left rather than guessed:
 
 1. **Whether to create the GitLab project at all**, and whether the
    GitLab-primary/GitHub-mirror arrangement of his other repos applies here. A
-   student-facing template may want to be public, unlike `ia2627-slides`.
+   student-facing template may want to be public.
 2. ~~**CI.**~~ Settled 2026-09-09: `.gitlab-ci.yml` was deleted. The instance
    does have an online shared runner (`RunnerZero`, id 1, `instance_type`, takes
    untagged jobs), but its *executor* could not be confirmed without an API
@@ -71,15 +70,11 @@ These were left rather than guessed:
    pipeline would go red in their forks, over a PDF that builds locally in one
    command. If the course later wants a published PDF, that belongs in the
    teacher's copy, not in the students' template.
-3. **Language.** Written in British English, following the decks. If students
-   report in Italian, `style.sty` needs `babel` switched.
+3. **Language.** Written in British English. If students report in Italian,
+   `style.sty` needs `babel` switched.
 4. **Course policy the template hints at but does not state**: group size,
    length limit, deadline, delivery channel, and whether the report is delivered
    with the artefacts or separately.
 5. **The placeholder assets.** `figures/universe.jpg` and
    `listings/HelloWorld.java` came from the source template; a Prolog or
    AgentSpeak listing would suit this course better than Java.
-6. **A latent bug in `ia2627-slides/bib/ia.bib`**: entry `rao-agentspeak96` has
-   `month = {{22--25~} # jan}`, whose doubled braces make the `#` literal. It is
-   corrected in this repo's copy but not at the source, where it will break any
-   build that formats that entry's month.
