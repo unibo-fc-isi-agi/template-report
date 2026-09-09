@@ -1,147 +1,111 @@
 # Project report template — Intelligent Agents 2026/2027
 
-The LaTeX template for the **optional project report** of the course of
+The LaTeX template for the report on the **optional project** of the course of
 Intelligent Agents, Academic Year 2026/2027 — Andrea Omicini, DISI, Alma Mater
-Studiorum – Università di Bologna, Cesena campus.
+Studiorum – Università di Bologna.
 
-The project is optional, worth up to 6/30, and assesses the *practical*
-knowledge of the student. It must cover, or follow from, a specific topic of the
-course, and must be negotiated with the teacher beforehand. See the
+The project is optional and worth up to 6/30. It must cover, or follow from, a
+specific topic of the course, and it must be agreed with the teacher
+beforehand. See the
 [Projects page on APICe](https://apice.unibo.it/xwiki/bin/view/Course/Iag2627/Projects).
+
+## Getting started
+
+1. Get a copy of this repository, and work in it.
+2. Put your title and the names and addresses of the authors at the top of
+   `report.tex`.
+3. Write the report, following the instructions in the template.
+4. When you are done, uncomment `\templateguidanceoff` in the preamble: all the
+   instructions disappear, and what is left is your report. Read it once in that
+   state before handing it in.
 
 ## Building
 
 ```bash
-latexmk -pdf report.tex     # or: pdflatex report && bibtex report && pdflatex report && pdflatex report
+latexmk -pdf report.tex
 ```
 
-The template compiles with pdfLaTeX and BibTeX only — no shell-escape, no
-external tooling, and no dependency on anything installed outside the repo —
-so it builds unchanged on any standard TeX installation. Output is
-`report.pdf`, which is git-ignored.
+Or, by hand:
+
+```bash
+pdflatex report && bibtex report && pdflatex report && pdflatex report
+```
+
+The template needs pdfLaTeX and BibTeX and nothing else — no shell-escape, no
+external tool, and nothing installed outside the repository — so it builds on
+any standard TeX installation. The result is `report.pdf`.
 
 ## Layout
 
 | path | what it holds |
 | --- | --- |
-| `report.tex` | the report itself: the section skeleton students fill in |
-| `sty/course.sty` | every course-dependent string — the only file to touch on year rollover |
-| `sty/style.sty` | packages, `\graphicspath`, the `\emailaddr` macro and the `guidance` environment |
-| `sty/code-listings.sty` | `listings` setup and the `\javaimport` / `\prologimport` / … macros |
-| `sty/prolog-style.sty` | Prolog syntax highlighting |
+| `report.tex` | the report: the sections you fill in |
+| `sty/` | the style files |
 | `bib/references.bib` | the bibliography |
-| `img/`, `listings/` | figures and code for the worked examples |
+| `img/` | figures |
+| `listings/` | source code to be included in the report |
 
-Sources are kept in directories by kind: `sty/` for styles, `bib/` for
-bibliography, `img/` for figures, `listings/` for code, with only `report.tex`
-at the root.
+Put your own figures in `img/` and your own code in `listings/`. Only
+`report.tex` sits at the top level; if you split the report into several files,
+keep them there beside it.
 
-`report.tex` sets `\input@path` to `sty/` before loading anything, which is what
-lets `\usepackage{style}` find `sty/style.sty` — and lets the style files go on
-loading each other by plain name. It is done in the document rather than in a
-`latexmkrc` or a `TEXINPUTS` setting so that the template still builds when it
-is typeset directly, without latexmk.
-
-Because the packages are then requested as `sty/…`, the style files carry no
-`\ProvidesPackage` line: it would report a name that does not match the request
-and raise a warning on every build.
+`report.tex` points LaTeX at `sty/` in its second line, which is what lets
+`\usepackage{style}` find `sty/style.sty`. If you add a style file of your own,
+put it in `sty/` and load it the same way, by its plain name and without a
+`\ProvidesPackage` line.
 
 ## The three kinds of project
 
-The course admits **theoretical**, **technological** and **methodological**
-projects, and they do not fill a report in the same way. The skeleton is
-therefore a common spine, with per-kind notes in every section, and
-*Design*, *Implementation* and *Deployment and usage* marked as belonging to
-technological projects only.
+A project may be **theoretical**, **technological** or **methodological**, and
+the three do not fill a report in the same way. The sections are a common
+spine, and each says what it expects from each kind.
 
-Sections that do not apply should be **dropped, not left empty**.
+*Design*, *Implementation* and *Deployment and usage* concern technological
+projects. If yours is not one, **delete them** — a section that does not apply
+should be removed, not left empty.
 
-The spine is: Concept -> Background -> Relevant agent and MAS features ->
-Contribution -> Validation -> Deployment and usage -> Self-evaluation ->
-Conclusions -> Future works, preceded by a Disclaimer and, while drafting, by
-two removable sections of instructions.
+One section deserves attention whatever the kind. **Relevant agent and MAS
+features** asks you to argue which agent-oriented features bear on your project
+*and which do not*: autonomy and agency, goal-directedness and mental state,
+reactivity and situatedness, sociality and coordination, reasoning and
+inference, knowledge and truth, learning and adaptation, openness and
+heterogeneity, organisation and norms. The exclusions matter as much as the
+inclusions — a feature dismissed with a reason shows the design was thought
+about — and whatever you claim there is what the rest of the report has to
+deliver.
 
-### Relevant agent and MAS features
+## The instructions in the template
 
-The one section with no counterpart in the templates this derives from, and the
-reason for the rewrite. It asks the student to argue which agent-oriented
-features bear on the project **and which do not** — autonomy and agency,
-goal-directedness and mental state, reactivity and situatedness, sociality and
-coordination, reasoning and inference, knowledge and truth, learning and
-adaptation, openness and heterogeneity, organisation and norms.
-
-The exclusions carry as much weight as the inclusions: a feature dismissed with
-a reason shows the design was thought about, and what is claimed here is what
-*Contribution* then has to deliver. The list follows the vocabulary of the
-course itself, so it should be revised as the course's own material settles.
-
-## The guidance boxes
-
-Every instruction to the student sits in a `guidance` environment, typeset small
-and italic:
+Every instruction sits in a `guidance` block, typeset small and italic:
 
 ```latex
 \begin{guidance}
-  ... instructions, lists and examples ...
+  ... instructions ...
 \end{guidance}
 ```
 
-It is an environment rather than a macro so that it can hold lists, figures and
-listings. Uncommenting one line in the preamble removes every one of them:
+One line in the preamble removes all of them at once:
 
 ```latex
 \templateguidanceoff
 ```
 
-This keeps a single source: there is no separate "instructions" and "clean"
-variant of the template to drift apart. With the guidance on the document is
-5 pages; with it off, 2 — the bare skeleton plus the disclaimer.
-
-Two consequences worth knowing:
-
-- A heading whose whole body is guidance must sit **inside** the environment,
-  or turning guidance off leaves an empty heading behind. This is why
-  *How to use this template* and *Quick LaTeX suggestions* have their
-  `\section*` inside the block, while *Disclaimer* — which has real content —
-  does not.
-- With the guidance on, `guidance` is an ordinary environment: its body is
-  typeset as it is read, so anything may appear inside it, verbatim included.
-  With it off, the `comment` package's scanner swallows the body — it discards
-  rather than re-reading, so no scratch file is written either way.
+Leave them on while you write; turn them off for the version you hand in. Do
+not delete them by hand — that way you can turn them back on if you need to
+check what a section was asking for.
 
 ## The bibliography
 
-`bib/references.bib` holds two entries, kept as worked examples of the house
-format: hand-maintained, stable citation keys, and
-an `apice` field cross-referencing the entry into APICe. Replace them.
+Cite with `\cite`, giving the key of an entry in `bib/references.bib`. Two
+entries are there as examples; replace them with your own.
 
-Two traps live here, both of which cost a build during setup:
+Ready-made BibTeX entries for most computer science papers can be copied from
+[DBLP](https://dblp.org/). Cite the works you actually used, and cite them from
+the point in the text where they are used.
 
-- **No header comment.** BibTeX scans for `@` to find the next entry, and the
-  `@` in a `mailto:` address inside a leading `%%%%` comment block is read as the
-  start of an entry. This is why the course `.bib` files carry no header, and
-  neither does this one.
-- **Concatenation braces.** `month = {22--25~} # jan` concatenates a string with
-  the `jan` macro. Writing `month = {{22--25~} # jan}` instead makes the `#`
-  *literal text*, which reaches LaTeX raw and aborts the build with
-  `You can't use macro parameter character #`. The entry copied from `ia.bib`
-  carried the doubled braces and was corrected here.
+## Credits
 
-## Provenance
-
-Derived from two Distributed Systems report templates.
-
-From [`pikalab-unibo/report-template`](https://github.com/pikalab-unibo/report-template),
-the original starting point: the `listings` configuration and import macros, the
-Prolog style, the `.gitignore`, and the version macros.
-
-From [`unibo-fc-isi-ds/template-final-report`](https://github.com/unibo-fc-isi-ds/template-final-report),
-the newer one, the *shape* rather than the content: guidance written as probing
-questions instead of prose, a features section that asks what is relevant and
-what is not, an AI-and-tools disclaimer, LaTeX advice moved to the front where
-it is read before it is needed, self-evaluation for group work, and future works
-as a section of its own.
-
-Neither is followed on structure. Both are built around a single software
-pipeline — requirements, design, deployment, tests — which fits only the
-technological third of what this course admits.
+Derived from the final report templates of the Distributed Systems courses,
+[`pikalab-unibo/report-template`](https://github.com/pikalab-unibo/report-template)
+and
+[`unibo-fc-isi-ds/template-final-report`](https://github.com/unibo-fc-isi-ds/template-final-report).
