@@ -282,3 +282,10 @@ TSWLatexianTemp*
 ## Finder writes these into any directory it displays; they carry no project
 ## information and would churn on every commit.
 .DS_Store
+
+## Editor state
+##
+## Whatever an editor writes beside the sources belongs to the machine it runs
+## on, not to the template: this repository is cloned by students, and none of
+## them should inherit anyone else's editor configuration.
+.vscode/
