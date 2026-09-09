@@ -1,11 +1,11 @@
 # Project report template — Intelligent Agents 2026/2027
 
 The LaTeX template for the report on the **optional project** of the course of
-Intelligent Agents, Academic Year 2026/2027 — Andrea Omicini, DISI, Alma Mater
-Studiorum – Università di Bologna.
+Intelligent Agents, Academic Year 2026/2027 — Andrea Omicini and Giovanni
+Ciatto, DISI, Alma Mater Studiorum – Università di Bologna.
 
 The project is optional and worth up to 6/30. It must cover, or follow from, a
-specific topic of the course, and it must be agreed with the teacher
+specific topic of the course, and it must be agreed with the teachers
 beforehand. See the
 [Projects page on APICe](https://apice.unibo.it/xwiki/bin/view/Course/Iag2627/Projects).
 
@@ -31,14 +31,24 @@ Or, by hand:
 pdflatex report && bibtex report && pdflatex report && pdflatex report
 ```
 
-The template needs pdfLaTeX and BibTeX and nothing else — no shell-escape, no
-external tool, and nothing installed outside the repository — so it builds on
-any standard TeX installation. The result is `report.pdf`.
+The result is `report.pdf`. The template needs pdfLaTeX and BibTeX and nothing
+else — no shell-escape, no external tool, nothing to install beside the sources.
 
-On GitLab, `.gitlab-ci.yml` runs that same command on every push and keeps
-`report.pdf` as a downloadable artifact for four weeks — so a report that
-compiles for you compiles on a clean machine too. It needs nothing from you,
-and if you would rather not have it, delete the file.
+It does need a **full TeX Live**. Beyond the usual LaTeX packages it loads
+[`acro`](https://ctan.org/pkg/acro),
+[`cleveref`](https://ctan.org/pkg/cleveref) and
+[`comment`](https://ctan.org/pkg/comment), which TeX Live keeps in
+`collection-latexextra`, and of the four installation schemes only the full one
+brings that collection in — not basic, not small, not medium. So: MacTeX, or
+TeX Live installed with the full scheme, or `texlive-full` on Debian and Ubuntu.
+On a smaller installation, `tlmgr install acro cleveref comment` is enough to
+make up the difference.
+
+On GitLab, `.gitlab-ci.yml` runs that same command on every push and leaves
+`report.pdf` as a downloadable artifact — so a report that compiles for you
+compiles on a clean machine too. Artifacts are dropped after four weeks, which
+costs nothing: the PDF is a few seconds of `latexmk` away. The pipeline needs
+nothing from you, and if you would rather not have it, delete the file.
 
 ## Layout
 
@@ -48,9 +58,9 @@ and if you would rather not have it, delete the file.
 | `sty/` | the style files |
 | `bib/references.bib` | the bibliography |
 | `img/` | figures |
-| `listings/` | source code to be included in the report |
+| `lst/` | source code to be included in the report |
 
-Put your own figures in `img/` and your own code in `listings/`. Only
+Put your own figures in `img/` and your own code in `lst/`. Only
 `report.tex` sits at the top level; if you split the report into several files,
 keep them there beside it.
 
@@ -61,23 +71,26 @@ put it in `sty/` and load it the same way, by its plain name and without a
 
 ## The three kinds of project
 
-A project may be **theoretical**, **technological** or **methodological**, and
-the three do not fill a report in the same way. The sections are a common
-spine, and each says what it expects from each kind.
+A project may have a mostly **theoretical**, **technological** or
+**methodological** focus. The sections are a common spine, and each says what it
+expects from each kind.
 
-*Design*, *Implementation* and *Deployment and usage* concern technological
-projects. If yours is not one, **delete them** — a section that does not apply
-should be removed, not left empty.
+Since a project is assessed on **technical** skill, the technology is prominent
+whatever the focus, and every kind builds something: a theoretical project
+argues a model and builds a proof of concept, a technological one builds an
+intelligent system as a multi-agent system, a methodological one prescribes a
+method and builds a case study.
 
 One section deserves attention whatever the kind. **Relevant agent and MAS
 features** asks you to argue which agent-oriented features bear on your project
-*and which do not*: autonomy and agency, goal-directedness and mental state,
-reactivity and situatedness, sociality and coordination, reasoning and
-inference, knowledge and truth, learning and adaptation, openness and
-heterogeneity, organisation and norms. The exclusions matter as much as the
-inclusions — a feature dismissed with a reason shows the design was thought
-about — and whatever you claim there is what the rest of the report has to
-deliver.
+*and which do not*: intelligence, autonomy and agency; the symbolic, the
+subsymbolic and the non-symbolic; goal-directedness and mental states;
+reactivity and situatedness; sociality, interaction and coordination; reasoning
+and inference; knowledge and truth; learning and adaptation; openness and
+heterogeneity; and tools. The list is open — add whatever else your project
+explores. The exclusions matter as much as the inclusions — a feature dismissed
+with a reason shows the design was thought about — and whatever you claim there
+is what the rest of the report has to deliver.
 
 ## The instructions in the template
 
@@ -119,16 +132,23 @@ the `sty/names.sty` of the course slides.
 
 ## The bibliography
 
-Cite with `\cite`, giving the key of an entry in `bib/references.bib`. Two
-entries are there as examples; replace them with your own.
+Cite with `\cite`, giving the key of an entry in `bib/references.bib`. One entry
+is there as an example — the book of the course — and it can go once you have
+your own.
+
+The style is `apalike`, so a citation prints author and year rather than a
+number: `[Mascardi and Omicini, 2026]`. Do not load `natbib` on top of it —
+`sty/style.sty` says why, in the comment where it used to be loaded.
 
 Ready-made BibTeX entries for most computer science papers can be copied from
-[DBLP](https://dblp.org/). Cite the works you actually used, and cite them from
-the point in the text where they are used.
+[DBLP](https://dblp.org/); entries for the papers of the course are on
+[APICe](https://apice.unibo.it/). Cite the works you actually used, and cite
+them from the point in the text where they are used.
 
 ## Credits
 
-Derived from the final report templates of the Distributed Systems courses,
+Derived from the final report templates of the Distributed Systems and Intelligent
+System Engineering courses,
 [`pikalab-unibo/report-template`](https://github.com/pikalab-unibo/report-template)
 and
 [`unibo-fc-isi-ds/template-final-report`](https://github.com/unibo-fc-isi-ds/template-final-report).

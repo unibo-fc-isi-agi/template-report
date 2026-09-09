@@ -1,6 +1,5 @@
 %%%% Names and acronyms for the Intelligent Agents 2026/2027 report template
 %%%% by Andrea Omicini <mailto:andrea.omicini@unibo.it>
-%%%% after sty/names.sty of the ia2627-slides project
 %%%%
 %% Names with a long form are acro acronyms; names that are pure typography are
 %% plain \newcommands further down. Found via \input@path, set in report.tex, so
@@ -11,15 +10,6 @@
 %% and the starred \acs*{id} prints the short form in a heading without spending
 %% the first use. Never wrap them in an \mas-style macro of your own.
 %%
-%% Two differences from the slides, both forced by the class. The slides are
-%% beamer, which still accepts the old two-letter font commands; scrartcl makes
-%% \sf \sc \bf \it hard errors, so every form here is written \textsf \textsc
-%% \textbf \textit instead. And there is no \acresetall hook: in an article the
-%% first use is once per document, which is what a report wants.
-%%
-%% This is a subset of the slides' names.sty: what a project report is likely to
-%% name. Delete what your report does not use, and copy across whatever else you
-%% need from the slides -- rewriting its font commands as above.
 \RequirePackage{acro}
 %%
 \DeclareAcronym{mas}{short = MAS, long = multi-agent system}

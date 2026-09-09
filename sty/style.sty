@@ -6,10 +6,22 @@
 %% keep the surface small. Found via \input@path, set in report.tex. See README.md.
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+% Computer Modern has no italic small caps, and sty/names.sty puts small caps
+% (\ac{bdi}, \ac{aea}, \ac{jade}) inside the italic guidance boxes. Say out loud
+% which shape stands in, so the substitution happens silently instead of warning
+% four times a build.
+\DeclareFontShape{T1}{cmr}{m}{scit}{<->ssub*cmr/m/scsl}{}
+\DeclareFontShape{T1}{cmr}{bx}{scit}{<->ssub*cmr/bx/scsl}{}
 \usepackage[british]{babel}
 \usepackage{graphicx}
-\usepackage{natbib}
 \usepackage{url}
+% No natbib. It wants a .bbl whose labels it can split into author and year;
+% apalike writes "[Mascardi and Omicini, 2026]", which it cannot, and against a
+% numerical style such as plain it stops the build outright on \citep or \citet
+% -- "Bibliography not compatible with author-year citations". Nothing here needs
+% it: \cite is a LaTeX built-in, and apalike already prints author and year. For
+% \citep and \citet, load natbib and switch the style to plainnat -- both, never
+% one.
 \usepackage{comment}
 \usepackage{code-listings}
 \usepackage{course}
