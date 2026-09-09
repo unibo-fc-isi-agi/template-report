@@ -3,8 +3,7 @@
 %%%% after pikalab-unibo/report-template and unibo-fc-isi-ds/template-final-report
 %%%%
 %% Loads the packages the template needs and the course identity. Student-facing:
-%% keep the surface small. See README.md.
-\ProvidesPackage{style}
+%% keep the surface small. Found via \input@path, set in report.tex. See README.md.
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[british]{babel}
@@ -19,6 +18,8 @@
 % cleveref does not know the listings float type
 \crefname{lstlisting}{listing}{listings}
 \Crefname{lstlisting}{Listing}{Listings}
+% figures live in img/
+\graphicspath{{img/}}
 % a mail address, typeset and linked
 \newcommand{\emailaddr}[1]{\href{mailto:#1}{\texttt{#1}}}
 % instructions to the student: block content, removed by \templateguidanceoff

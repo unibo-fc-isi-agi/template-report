@@ -22,15 +22,29 @@ so it builds unchanged on any standard TeX installation. Output is
 
 ## Layout
 
-| file | what it holds |
+| path | what it holds |
 | --- | --- |
 | `report.tex` | the report itself: the section skeleton students fill in |
-| `course.sty` | every course-dependent string — the only file to touch on year rollover |
-| `style.sty` | packages, the `\emailaddr` and `\guidance` macros |
-| `code-listings.sty` | `listings` setup and the `\javaimport` / `\prologimport` / … macros |
-| `prolog-style.sty` | Prolog syntax highlighting |
-| `references.bib` | the bibliography |
-| `figures/`, `listings/` | placeholder assets for the worked examples |
+| `sty/course.sty` | every course-dependent string — the only file to touch on year rollover |
+| `sty/style.sty` | packages, `\graphicspath`, the `\emailaddr` macro and the `guidance` environment |
+| `sty/code-listings.sty` | `listings` setup and the `\javaimport` / `\prologimport` / … macros |
+| `sty/prolog-style.sty` | Prolog syntax highlighting |
+| `bib/references.bib` | the bibliography |
+| `img/`, `listings/` | figures and code for the worked examples |
+
+Sources are kept in directories by kind: `sty/` for styles, `bib/` for
+bibliography, `img/` for figures, `listings/` for code, with only `report.tex`
+at the root.
+
+`report.tex` sets `\input@path` to `sty/` before loading anything, which is what
+lets `\usepackage{style}` find `sty/style.sty` — and lets the style files go on
+loading each other by plain name. It is done in the document rather than in a
+`latexmkrc` or a `TEXINPUTS` setting so that the template still builds when it
+is typeset directly, without latexmk.
+
+Because the packages are then requested as `sty/…`, the style files carry no
+`\ProvidesPackage` line: it would report a name that does not match the request
+and raise a warning on every build.
 
 ## The three kinds of project
 
@@ -95,7 +109,7 @@ Two consequences worth knowing:
 
 ## The bibliography
 
-`references.bib` holds two entries, kept as worked examples of the house
+`bib/references.bib` holds two entries, kept as worked examples of the house
 format: hand-maintained, stable citation keys, and
 an `apice` field cross-referencing the entry into APICe. Replace them.
 

@@ -22,7 +22,7 @@ A student-facing LaTeX **template**, not a document. Two consequences:
   saying what the block is and how it is called. Reasoning goes to `README.md`,
   traps here, state to `.ai/HANDOFF.md`.
 - Keep the `%%%% … by Andrea Omicini <mailto:…>` header on every `.tex`/`.sty`.
-- `references.bib` is **hand-maintained**. Never wire it to a reference manager,
+- `bib/references.bib` is **hand-maintained**. Never wire it to a reference manager,
   and never invent an entry — transcribe it from the source, keeping a stable
   citation key and the `apice` cross-reference field.
 - Markdown must pass markdownlint cleanly before the work is called done.
@@ -45,14 +45,29 @@ A student-facing LaTeX **template**, not a document. Two consequences:
   `month = {22--25~} # jan` is correct; `month = {{22--25~} # jan}` makes the `#`
   literal, and LaTeX aborts on the resulting `.bbl`.
 - **`latexmk -C` does not always clear a stale `.bbl`.** After editing
-  `references.bib`, `rm -f report.bbl` before rebuilding, or a fixed `.bib` will
+  `bib/references.bib`, `rm -f report.bbl` before rebuilding, or a fixed `.bib` will
   appear still broken.
 - **cleveref does not know `lstlisting`.** `\crefname`/`\Crefname` for it are
-  declared in `style.sty`; without them every `\cref` to a listing warns.
+  declared in `sty/style.sty`; without them every `\cref` to a listing warns.
 - The build log has several pdfLaTeX passes. Undefined-reference warnings in the
   early ones are normal — judge the build by the **final** pass.
 
+## Layout
+
+Sources go in directories by kind — `sty/`, `bib/`, `img/`, `listings/` — with
+only `report.tex` at the root.
+
+- `report.tex` sets `\input@path` to `{sty/}` so `\usepackage{style}` resolves,
+  and so the style files can load each other by plain name. Do not replace this
+  with a `latexmkrc` or `TEXINPUTS`: the template must build when typeset
+  directly, not only under latexmk.
+- **The style files must not declare `\ProvidesPackage`.** With `\input@path`
+  in play LaTeX requests them as `sty/style`, `sty/course`, …, so a
+  `\ProvidesPackage{style}` mismatches the request and warns on every build.
+- Figures are found through `\graphicspath{{img/}}`, set in `sty/style.sty`.
+- The bibliography is referenced as `\bibliography{bib/references}`.
+
 ## Year rollover
 
-Everything course-dependent is in `course.sty`. Rolling the template over to the
+Everything course-dependent is in `sty/course.sty`. Rolling the template over to the
 next academic year should touch that file and nothing else.

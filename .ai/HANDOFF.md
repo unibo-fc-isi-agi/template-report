@@ -1,7 +1,7 @@
 # AI Handoff
 
-Last updated: 2026-09-09, by Claude — second turn, restructuring the template
-after `unibo-fc-isi-ds/template-final-report`.
+Last updated: 2026-09-09, by Claude — third turn, moving the sources into
+directories by kind.
 
 ## State
 
@@ -12,6 +12,21 @@ The template compiles in both of its states, with a clean final pdfLaTeX pass:
 Nothing has been pushed. `origin` is configured to the DISI GitLab, but the
 GitLab project does not exist yet — creating it is Andrea's call, and the first
 push is what would create it.
+
+## What the third turn did
+
+Moved the sources into directories by kind at Andrea's request: `sty/` for the
+four style files, `bib/` for the bibliography, `img/` for figures. `listings/`
+already existed and was left alone, and `report.tex` stays at the root.
+
+The one thing that needed thought is how `\usepackage` finds a style file in a
+subdirectory without a `latexmkrc` or a `TEXINPUTS` setting — either would break
+typesetting the file directly, which students do. `report.tex` now sets
+`\input@path` to `{sty/}`, which `\IfFileExists` consults, so plain
+`\usepackage{style}` resolves and the style files still load each other by bare
+name. Consequence recorded in `CLAUDE.md`: the style files must **not** declare
+`\ProvidesPackage`, because LaTeX then requests them as `sty/style` and the
+mismatch warns on every build.
 
 ## What the second turn did
 
@@ -71,10 +86,10 @@ These were left rather than guessed:
    command. If the course later wants a published PDF, that belongs in the
    teacher's copy, not in the students' template.
 3. **Language.** Written in British English. If students report in Italian,
-   `style.sty` needs `babel` switched.
+   `sty/style.sty` needs `babel` switched.
 4. **Course policy the template hints at but does not state**: group size,
    length limit, deadline, delivery channel, and whether the report is delivered
    with the artefacts or separately.
-5. **The placeholder assets.** `figures/universe.jpg` and
+5. **The placeholder assets.** `img/universe.jpg` and
    `listings/HelloWorld.java` came from the source template; a Prolog or
    AgentSpeak listing would suit this course better than Java.
