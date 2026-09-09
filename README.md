@@ -35,6 +35,11 @@ The template needs pdfLaTeX and BibTeX and nothing else — no shell-escape, no
 external tool, and nothing installed outside the repository — so it builds on
 any standard TeX installation. The result is `report.pdf`.
 
+On GitLab, `.gitlab-ci.yml` runs that same command on every push and keeps
+`report.pdf` as a downloadable artifact for four weeks — so a report that
+compiles for you compiles on a clean machine too. It needs nothing from you,
+and if you would rather not have it, delete the file.
+
 ## Layout
 
 | path | what it holds |

@@ -1,0 +1,16 @@
+# Builds report.pdf on every push, and keeps it as a downloadable artifact.
+#
+# Nothing here is needed to write the report: `latexmk -pdf report.tex` does the
+# same on your own machine, and that is the way to work day to day. This only
+# gives you the same build on a clean machine, so a report that compiles here
+# compiles for whoever reads it. Delete this file if you would rather not have it.
+
+build:
+  image: texlive/texlive:latest
+  script:
+    - latexmk -pdf -file-line-error -interaction=nonstopmode -halt-on-error report.tex
+  artifacts:
+    name: report
+    paths:
+      - report.pdf
+    expire_in: 4 weeks
