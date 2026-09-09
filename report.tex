@@ -8,14 +8,14 @@
 \documentclass[11pt,a4paper]{scrartcl}
 \makeatletter\def\input@path{{sty/}}\makeatother % so \usepackage finds sty/
 \usepackage{style}
-%\templateguidanceoff
+%\templateguidanceoff{}
 
-\title{\LARGE Project Report Template\\ (replace with the title of your project)
-}
+\title{\LARGE Project Report Template}
+%
 \subtitle{Project report for the course of \coursetitlelong{}, A.Y.\ \academicyear{}}
-
-\author{ Student 1 \\ \emailaddr{student1@studio.unibo.it}
-    \and Student 2 \\ \emailaddr{student2@studio.unibo.it}
+%
+\author{ Name1 Surname1 \\ \emailaddr{name1.surname1@studio.unibo.it}
+    \and Name2 Surname2 \\ \emailaddr{name2.surname2@studio.unibo.it}
 }
 
 \date{\today}
@@ -35,21 +35,21 @@ During the preparation of this work, the author(s) used [NAME THE TOOL OR SERVIC
 After using it, the author(s) reviewed and edited the content as needed, and take(s) full responsibility for the content of this report and of the artefacts it describes.
 
 \begin{guidance}
-Keep this section, filled in, if any tool or service – generative or otherwise — contributed to the work or to the report. Delete it entirely if none did. Declaring is not penalised; failing to declare is.
+Keep this section, filled in, if any tool or service – generative or otherwise — contributed to the work or to the report. 
+%
+Delete it entirely if none did. Declaring is not penalised; failing to declare is.
 \end{guidance}
 
 \begin{guidance}
 \section*{How to use this template}
 
-This is the report for the \emph{optional project} of \coursetitlelong{} \academicyear{}. The project is worth up to 6/30, it assesses \emph{technical} knowledge, it must cover or follow from a specific topic of the course, and it must be agreed with the teacher beforehand – see \url{\apiceprojects}.
-
-A project may be \textbf{theoretical}, \textbf{technological} or \textbf{methodological}, and the three do not fill this report in the same way:
+This is the report for the \emph{optional project} of \coursetitlelong{} \academicyear{}. 
 %
-\begin{itemize}
-  \item every section carries a note saying what it expects from each kind;
-  \item \Cref{sec:design,sec:implementation,sec:deployment} concern \emph{technological} projects, and should be dropped by the other two;
-  \item a section that does not apply must be \emph{removed}, not left empty.
-\end{itemize}
+The project is worth up to 6/30, it assesses \emph{technical} knowledge, it must cover or follow from a specific topic of the course, and it must be agreed with the teacher beforehand – see \url{\apiceprojects} for inspiration.
+
+A project may have a mostly \textbf{theoretical}, \textbf{technological}, or \textbf{methodological} focus.
+%
+Yet, since the goal of a project is mainly assessing technical skills, the technology element is always prominent.
 
 When the report is written, uncomment \texttt{\textbackslash templateguidanceoff} in the preamble: every box like this one disappears, and what is left is your report.
 \end{guidance}
@@ -60,7 +60,7 @@ When the report is written, uncomment \texttt{\textbackslash templateguidanceoff
 \begin{itemize}
   \item \textbf{Cite} with \texttt{\textbackslash cite}, giving the BibTeX key of an entry of \texttt{bib/references.bib}, as in \cite{rao-agentspeak96}. Ready-made entries for most computer science papers are on \href{https://dblp.org/}{DBLP}; entries for the papers of the course are on \href{https://apice.unibo.it/}{APICe}.
 
-  \item \textbf{Float} figures, tables and listings: put them in a \texttt{figure} or \texttt{lstlisting} environment and let \LaTeX{} place them. Do \emph{not} write placement hints such as \texttt{[h]} or \texttt{[h!]}. Label them, and reference the label with \texttt{\textbackslash cref} – as in \cref{fig:universe} and \cref{lst:snippet} – rather than writing ``the figure below''. Figures go in \texttt{img/}, code in \texttt{listings/}.
+  \item \textbf{Float} figures, tables, and listings: put them in a \texttt{figure} or \texttt{lstlisting} environment and let \LaTeX{} place them. Do \emph{not} write placement hints such as \texttt{[h]} or \texttt{[h!]}. Label them, and reference the label with \texttt{\textbackslash Cref} – as in \Cref{fig:universe} and \Cref{lst:snippet} – rather than writing ``the figure below''. Figures go in \texttt{img/}, code in \texttt{listings/}.
 
   \item \textbf{Never break a line} with \texttt{\textbackslash\textbackslash} or \texttt{\textbackslash newline}. Leave a blank line to start a new paragraph; the indentation that follows is deliberate, and is how \LaTeX{} marks the paragraph break.
 
@@ -86,7 +86,9 @@ When the report is written, uncomment \texttt{\textbackslash templateguidanceoff
 
 \begin{guidance}
 \begin{itemize}
-  \item Which \textbf{kind} of project is this – theoretical, technological, methodological? Say so explicitly, in the first lines.
+  \item Which \textbf{kind} of project is this – theoretical, technological, methodological? 
+  %
+  Say so explicitly, in the first lines.
 
   \item Which \textbf{topic of the course} does it cover, or follow from?
 
@@ -97,9 +99,11 @@ When the report is written, uncomment \texttt{\textbackslash templateguidanceoff
     \item for a \emph{methodological} one: which practice, and whose?
   \end{itemize}
 
-  \item Why is an \textbf{agent-oriented} reading the right one here? If the problem could be stated without agents, say why agents still earn their place – or reconsider the project.
+  \item Why is an \textbf{agent-oriented} reading the right one here? 
+  %
+  If the problem could be stated without agents, say why agents still earn their place – or reconsider the project.
 
-  \item What is deliberately \textbf{out of scope}?
+  \item Is there anything that is deliberately \textbf{out of scope}?
 \end{itemize}
 \end{guidance}
 
@@ -108,13 +112,15 @@ When the report is written, uncomment \texttt{\textbackslash templateguidanceoff
 
 \begin{guidance}
 \begin{itemize}
-  \item State the objectives so that they can be \emph{checked}, and number them: they are referred to from \Cref{sec:validation}.
+  \item State the objectives so that they can be \emph{checked}, and label them: they are referred to from \Cref{sec:validation}.
+  %
+  \item Give each objective an \textbf{acceptance criterion}—what would count as having met it, decided \emph{now} rather than after the fact.
+  %
+  \item Which \textbf{artefacts} will be delivered?
+  %
+  An argument, a model, a proof, a program, a corpus of experiments, a method, a guideline?
 
-  \item Give each objective an \textbf{acceptance criterion} – what would count as having met it, decided \emph{now} rather than after the fact.
-
-  \item Which \textbf{artefacts} will be delivered? An argument, a model, a proof, a program, a corpus of experiments, a method, a guideline?
-
-  \item If the project is a group one, who is responsible for what?
+  \item If the project is a group project, how are work and responsibility be distributed among the group members?
 \end{itemize}
 \end{guidance}
 
@@ -123,11 +129,15 @@ When the report is written, uncomment \texttt{\textbackslash templateguidanceoff
 
 \begin{guidance}
 \begin{itemize}
-  \item Which notions of \coursetitlelong{} does the project rest on? Be specific and cite: computational logic and logic programming, the BDI model of agency, coordination and interaction, the treatment of truth and knowledge in intelligent systems.
+  \item Which notions of \coursetitlelong{} does the project rest on? 
+  %
+  Be specific: e.g., computational logic and logic programming, the BDI model of agency, coordination and interaction, the treatment of truth and knowledge in intelligent systems, \ldots{}
 
   \item What is the \textbf{state of the art} the project positions itself against, and what does the project add to it?
 
-  \item Define the domain-specific terms you will use. A short glossary is welcome.
+  \item Define the domain-specific terms you will use.
+  %
+  A short glossary is welcome.
 
   \item This section is usually best written \emph{last}.
 \end{itemize}
@@ -137,26 +147,60 @@ When the report is written, uncomment \texttt{\textbackslash templateguidanceoff
 \label{sec:features}
 
 \begin{guidance}
-Argue which of the following are relevant to your project \emph{and which are not} – the exclusions matter as much as the inclusions, and a feature dismissed with a reason is a sign the design was thought through. Whatever you claim here is what \Cref{sec:contribution} must deliver on.
+In this section, one should argue about which of the following are relevant to your project \emph{and which are not} – the exclusions matter as much as the inclusions, and a feature dismissed with a reason is a sign the design was thought through. Whatever you claim here is what \Cref{sec:contribution} must deliver on.
 
 \begin{itemize}
-  \item \textbf{autonomy and agency} – in what sense is your entity an \emph{agent} rather than an object or a process? What does it decide by itself?
+  \item \textbf{intelligence, autonomy, agency} – 
+  what dimensions in terms of agent \emph{intelligence} and \emph{autonomy} does your system explore?
 
-  \item \textbf{goal-directedness, and mental state} – are beliefs, desires and intentions explicit in the model? Does the agent deliberate, or merely react?
+  \item \textbf{symbolic, subsymbolic, non-symbolic} – 
+  what sorts of AI techniques (symbolic, subsymbolic, non-symbolic) does your project leverage?
+  %
+  How do different sorts of AI techniques integrate in your project, for what reason, and towards which goal?
 
-  \item \textbf{reactivity and situatedness} – what is the \emph{environment}? How does the agent perceive it and act upon it? Is the environment itself modelled as a first-class abstraction?
+  \item \textbf{goal-directedness and mental states} – 
+  which mental abstractions do your agents exploit? 
+  %
+  E.g., are beliefs, desires and intentions explicit in the model?
 
-  \item \textbf{sociality, interaction and coordination} – how many agents, and how do they interact? Which coordination model or medium – message passing, tuple spaces, protocols? Who governs the interaction?
+  \item \textbf{reactivity and situatedness} – 
+  what is the \emph{environment} in your multi-agent system?
+  %
+  How does the agent perceive it and act upon it? 
+  %
+  Is the environment itself modelled as a first-class abstraction?
 
-  \item \textbf{reasoning and inference} – is reasoning symbolic, sub-symbolic or hybrid? Which logic, and why that one? What is decidable, and at what cost?
+  \item \textbf{sociality, interaction, coordination} – how many agents in your MAS, and how do they interact? 
+  %
+  Which interaction protocol or coordination model or medium—message passing, tuple spaces, protocols?
+  %
+  Who/what governs the interaction among agents?ì in the MAS?
 
-  \item \textbf{knowledge and truth} – how is knowledge represented, and what is its epistemic status? What happens when beliefs turn out false, or when two agents disagree?
+  \item \textbf{reasoning and inference} – is agent reasoning symbolic, sub-symbolic or hybrid? 
+  %
+  Which logic, and why that one? 
+  %
+  What is decidable, and at what cost?
 
-  \item \textbf{learning and adaptation} – does anything change over time as a result of experience? Distinguish adaptation from mere configuration.
+  \item \textbf{knowledge and truth} – how is knowledge represented, and what is its epistemic status? 
+  %
+  Is there any notion of verifiable truth?
+  %
+  What happens when beliefs turn out false, or when two agents disagree?
 
-  \item \textbf{openness and heterogeneity} – can agents join or leave? Are they built by different parties, on different technologies, with different interests?
+  \item \textbf{learning and adaptation} – does anything change over time as a result of experience? 
+  %
+  Do agents actually learn, and using which process / technique?
+  
+  \item \textbf{openness and heterogeneity} – can agents join or leave? 
+  %
+  Are they built by different parties, on different technologies, with different interests?
 
-  \item \textbf{organisation and norms} – are there roles, institutions, obligations or prohibitions? What happens when a norm is violated?
+  \item \textbf{tools} – do agents use tools? 
+  %
+  How do they represent, select, and exploit them in order to achieve their goals?
+  
+  \item \ldots{} other agents and MAS features relevant to the course and explored by your project can also be listed here
 \end{itemize}
 \end{guidance}
 
@@ -166,20 +210,39 @@ Argue which of the following are relevant to your project \emph{and which are no
 \begin{guidance}
 The core of the report.
 %
-A \emph{theoretical} project argues: definitions, model, claims, and the reasoning that supports them.
+A \emph{theoretical} project argues: definitions, model, claims, and the reasoning that supports them—and builds a technology artefact as a proof-of-concept.
 %
-A \emph{technological} project builds: fill in the two subsections below.
+A \emph{technological} project builds an intelligent system as a MAS, 
 %
-A \emph{methodological} project prescribes: the method, its steps, the conditions under which it applies, and what it costs to follow.
+A \emph{methodological} project prescribes: the method, its steps, the conditions under which it applies, and what it costs to follow—and builds a technology artefact as a case study.
 
 Whatever the kind, report \textbf{why} each choice was made, against the features claimed in \Cref{sec:features}. Alternatives considered and rejected are worth reporting, with the reason.
+\end{guidance}
+
+\subsection{Analysis}
+\label{sec:analysis}
+
+\begin{guidance}
+\emph{Theoretical and methodological projects.} 
+%
+The core of the contribution. 
+%
+The main conceptual and methodological elements need to be listed, with reference to the course and to the literature.
+%
+The novel contributions in terms of theory or methodology have to be clearly stated here, and developed somehow extensively.
+
+\emph{Technological projects.} 
+%
+The essential theoretical framework required to understand the tools adopted and the artefacts produced need to be introduced here, citations of relevant literature included.
 \end{guidance}
 
 \subsection{Design}
 \label{sec:design}
 
 \begin{guidance}
-\emph{Technological projects.} Keep this technology-free as far as it will go: the design should survive a change of language or framework.
+\emph{Technological projects.} 
+%
+The core of the contribution: a \emph{software engineering} mindset would help you prepare this section.
 %
 \begin{itemize}
   \item \textbf{structure} – which entities are modelled, and which of them are agents? Class diagrams, ontologies, the domain vocabulary.
@@ -188,13 +251,19 @@ Whatever the kind, report \textbf{why} each choice was made, against the feature
   \item \textbf{architecture} – how the parts are organised into modules and distributed over nodes.
   \item \textbf{corner cases} – failure detection, recovery, error reporting, graceful shutdown. What does an agent do when the environment lies to it?
 \end{itemize}
+
+\emph{Theoretical and methodological projects.} 
+%
+Just the essential elements of the technology adopted for the proof-of-concepts or the case studies are required here.
 \end{guidance}
 
 \subsection{Implementation}
 \label{sec:implementation}
 
 \begin{guidance}
-\emph{Technological projects.} Only what is interesting or non-trivial – the points where the design met resistance – plus the technologies adopted and why. Where generated documentation exists, reference it instead of repeating it.
+Only what is interesting or non-trivial – the points where the design met resistance – plus the technologies adopted and why. 
+%
+Where generated documentation exists, reference it instead of repeating it.
 \end{guidance}
 
 \section{Validation}
@@ -204,9 +273,9 @@ Whatever the kind, report \textbf{why} each choice was made, against the feature
 State the criterion \emph{before} the evidence, and tie it back to the numbered objectives of \Cref{sec:objectives}.
 %
 \begin{itemize}
-  \item \emph{theoretical} – the proofs, or the arguments and the objections they answer. Which claims remain conjectural?
-  \item \emph{technological} – tests and their rationale: what was tested, how it was automated, how to run it, and which objective each test speaks to. Report how many pass out of how many, and cover the corner cases.
-  \item \emph{methodological} – the case the method was applied to, and what applying it actually showed.
+  \item \emph{theoretical} – the proofs, or the arguments and the objections they answer: which claims remain conjectural?
+  \item \emph{technological} – tests and their rationale: what was tested, how it was automated, how to run it, and which objective each test speaks to
+  \item \emph{methodological} – the case the method was applied to, and what applying it actually showed
 \end{itemize}
 
 An honest negative result, explained, is worth more than a claim the evidence does not support.
