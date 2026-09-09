@@ -1,0 +1,16 @@
+## UNVERIFIED: needs a runner available to this namespace on gitlab.disi.unibo.it.
+## If none is available the pipeline shows red on every copy of the template,
+## which is worse than having no pipeline -- in that case delete this file.
+## See .ai/HANDOFF.md, open point 2.
+stages:
+  - build
+
+compile:
+  stage: build
+  image: texlive/texlive:latest
+  script:
+    - latexmk -pdf -interaction=nonstopmode -halt-on-error report.tex
+  artifacts:
+    paths:
+      - report.pdf
+    expire_in: 4 weeks

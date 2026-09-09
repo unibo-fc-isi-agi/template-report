@@ -1,0 +1,209 @@
+%%%% Project report template for the course of Intelligent Agents 2026/2027
+%%%% by Andrea Omicini <mailto:andrea.omicini@unibo.it>
+%%%% after pikalab-unibo/report-template
+%%%%
+%% Course strings live in course.sty, packages and the \guidance box in style.sty.
+%% \templateguidanceoff in the preamble drops every instruction box at once.
+\documentclass[11pt,a4paper]{scrartcl}
+\usepackage{style}
+% version, read by the release job -- keep the three on separate lines
+\newcommand{\versionmajor}{0}
+\newcommand{\versionminor}{1}
+\newcommand{\versionpatch}{0}
+\newcommand{\version}{\versionmajor.\versionminor.\versionpatch}
+
+\title{Project Report Template}
+\subtitle{\coursetitlelong{} \academicyear{} --- v.\ \version}
+
+\author{
+    Student 1 \\ \emailaddr{student1@studio.unibo.it}
+    \and
+    Student 2 \\ \emailaddr{student2@studio.unibo.it}
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    Up to $\sim$2000 characters stating what the project set out to do, how, and
+    what came of it.
+\end{abstract}
+
+\guidance{%
+    This is the report template for the \emph{optional project} of
+    \coursetitlelong{} \academicyear{}. The project is worth up to 6/30 and is
+    meant to assess practical knowledge; it must cover, or follow from, a
+    specific topic of the course, and must be agreed with the teacher
+    beforehand --- see \url{\apiceprojects}.
+    %
+    A project may be \emph{theoretical}, \emph{technological}, or
+    \emph{methodological}, and the three do not fill these sections in the same
+    way: each section below says what it expects from each kind. Sections that
+    do not apply to your kind of project should be dropped, not left empty.
+    %
+    Once the report is written, put \texttt{\textbackslash templateguidanceoff}
+    in the preamble to hide every box like this one.
+}
+
+\section{Goal of the project}
+\label{sec:goal}
+
+\guidance{%
+    What the project is meant to achieve, and against what it should be judged.
+    State the \emph{kind} of project --- theoretical, technological,
+    methodological --- and name the \emph{topic of the course} it covers or
+    follows from. Be precise about scope: what is deliberately left out matters
+    as much as what is in.
+}
+
+\subsection{Definition of done}
+
+\guidance{%
+    The conditions under which the project is finished, written so that someone
+    else could check them. Which artefacts will be delivered --- an argument, a
+    model, a piece of software, a method, an experimental protocol? How will
+    each be shown to hold?
+}
+
+\section{Background and link to the course}
+\label{sec:background}
+
+\guidance{%
+    The notions from \coursetitlelong{} the project rests on --- agent models
+    and architectures, agency and autonomy, coordination and interaction,
+    environment, MAS engineering --- and the state of the art the project
+    positions itself against. Cite properly: this section is where references
+    do their work. Best written last.
+}
+
+\section{Contribution}
+\label{sec:contribution}
+
+\guidance{%
+    The core of the report, and the section that differs most across the three
+    kinds of project.
+    %
+    A \emph{theoretical} project argues: definitions, model, claims and the
+    reasoning that supports them.
+    %
+    A \emph{technological} project builds: fill in the subsections below.
+    %
+    A \emph{methodological} project prescribes: the method, its steps, the
+    conditions under which it applies, and its cost.
+    %
+    Whichever it is, always report \textbf{why} a choice was made, and say which
+    alternatives were considered and rejected --- a discarded option, explained,
+    is worth reporting.
+}
+
+\subsection{Design}
+
+\guidance{%
+    \emph{Technological projects.} Keep the discussion technology-free as far as
+    it will go. For a multi-agent system, this is where the agents, their
+    environment, and the coordination among them are defined: which entities are
+    modelled (UML class diagrams, ontologies), how they interact (interaction
+    protocols, sequence diagrams), how each behaves (state diagrams, plan
+    libraries), and how the whole is organised into modules and deployed.
+    %
+    Do not forget the corner cases: failure detection, recovery, error
+    reporting, graceful shutdown.
+}
+
+\subsection{Implementation}
+
+\guidance{%
+    \emph{Technological projects.} Only what is interesting or non-trivial ---
+    the parts where the design met resistance --- together with the technologies
+    adopted and why. Keep it short where generated documentation already exists,
+    and reference that documentation instead.
+}
+
+\section{Validation}
+\label{sec:validation}
+
+\guidance{%
+    How you know the contribution holds, and by which criterion --- stated
+    before the evidence, not after.
+    %
+    For a \emph{theoretical} project: the proofs, or the arguments and the
+    objections they answer.
+    %
+    For a \emph{technological} project: tests and their rationale, how many pass
+    of how many, coverage if measured, and any experiment or benchmark.
+    %
+    For a \emph{methodological} project: the case the method was applied to, and
+    what applying it showed.
+    %
+    Whatever the kind, validation must speak to the goals in
+    \Cref{sec:goal}.
+}
+
+\section{Deployment and usage}
+\label{sec:deployment}
+
+\guidance{%
+    \emph{Technological projects only --- drop this section otherwise.}
+    %
+    How to install and launch the software on a machine with nothing on it, with
+    \textbf{every} configuration step reported, followed by at least one worked
+    example per usage scenario.
+}
+
+\section{Conclusions}
+\label{sec:conclusions}
+
+\guidance{%
+    What was done, what was not done and why, and what you learned. Future work
+    belongs here: be concrete about what the next step would actually be.
+}
+
+\section*{Stylistic notes}
+
+\guidance{This section is guidance about writing the report. Delete it.}
+
+Use a uniform notation, particularly for formal material: $X$, X, $\mathbf{X}$,
+$\mathcal{X}$ and \texttt{X} are different symbols, and may denote different
+things.
+
+This is a very short paragraph.
+
+This is a longer paragraph --- note the blank line in the source.
+It is made of several sentences.
+%
+Use comments in the \texttt{.tex} source to separate the sentences of a
+paragraph, as done here.
+
+A paragraph should be logically atomic: a subordinate sentence should refer to
+another sentence of the same paragraph.
+
+The first line of a paragraph is indented, and this is deliberate: it is how
+\LaTeX{} signals that a new paragraph has begun.
+
+\begin{figure} % no positional hint -- let LaTeX place it
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/universe.jpg}
+    \caption{Some floating figure.}
+    \label{fig:image}
+\end{figure}
+
+Let \LaTeX{} place figures, tables and listings; label them, and reference the
+label rather than writing ``in the image below''. See \cref{fig:image}.
+
+Use the \href{https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings}{\texttt{listings}}
+package for code, as in \cref{lst:snippet}; the import macros are defined in
+\texttt{code-listings.sty}.
+
+\javaimport[
+    caption={Some Java listing},
+    label={lst:snippet}
+]{listings/HelloWorld.java}
+
+\nocite{*} % cite everything in references.bib -- drop once you cite properly
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

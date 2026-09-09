@@ -1,0 +1,25 @@
+%%%% Style for the Intelligent Agents 2026/2027 report template
+%%%% by Andrea Omicini <mailto:andrea.omicini@unibo.it>
+%%%% after pikalab-unibo/report-template
+%%%%
+%% Loads the packages the template needs and the course identity. Student-facing:
+%% keep the surface small. See README.md.
+\ProvidesPackage{style}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[british]{babel}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{code-listings}
+\usepackage{course}
+% cleveref does not know the listings float type
+\crefname{lstlisting}{listing}{listings}
+\Crefname{lstlisting}{Listing}{Listings}
+% a mail address, typeset and linked
+\newcommand{\emailaddr}[1]{\href{mailto:#1}{\texttt{#1}}}
+% the guidance boxes of the template, dropped by \templateguidanceoff
+\newcommand{\guidance}[1]{\begingroup\itshape\small #1\par\endgroup}
+\newcommand{\templateguidanceoff}{\renewcommand{\guidance}[1]{}}
