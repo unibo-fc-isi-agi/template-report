@@ -10,7 +10,7 @@
 \usepackage{graphicx}
 \usepackage{natbib}
 \usepackage{url}
-\usepackage{comment}
+\usepackage{environ}
 \usepackage{code-listings}
 \usepackage{course}
 \usepackage{hyperref}
@@ -23,5 +23,5 @@
 % a mail address, typeset and linked
 \newcommand{\emailaddr}[1]{\href{mailto:#1}{\texttt{#1}}}
 % instructions to the student: block content, removed by \templateguidanceoff
-\specialcomment{guidance}{\begingroup\small\itshape}{\endgroup}
-\newcommand{\templateguidanceoff}{\excludecomment{guidance}}
+\NewEnviron{guidance}{\begingroup\small\itshape\BODY\par\endgroup}
+\newcommand{\templateguidanceoff}{\RenewEnviron{guidance}{}}

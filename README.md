@@ -95,7 +95,7 @@ listings. Uncommenting one line in the preamble removes every one of them:
 
 This keeps a single source: there is no separate "instructions" and "clean"
 variant of the template to drift apart. With the guidance on the document is
-6 pages; with it off, 2 — the bare skeleton plus the disclaimer.
+5 pages; with it off, 2 — the bare skeleton plus the disclaimer.
 
 Two consequences worth knowing:
 
@@ -104,8 +104,9 @@ Two consequences worth knowing:
   *How to use this template* and *Quick LaTeX suggestions* have their
   `\section*` inside the block, while *Disclaimer* — which has real content —
   does not.
-- The environment comes from the `comment` package, which round-trips the block
-  through a `comment.cut` scratch file. It is git-ignored already.
+- The environment comes from `environ`, which collects the block into a macro.
+  It leaves no scratch file behind — an earlier version used the `comment`
+  package, which rewrote a `comment.cut` beside the sources on every build.
 
 ## The bibliography
 

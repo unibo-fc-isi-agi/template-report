@@ -30,12 +30,19 @@ A student-facing LaTeX **template**, not a document. Two consequences:
 ## The guidance environment
 
 - It is an environment, not a macro, so it can carry lists, figures and
-  listings. It comes from the `comment` package via `\specialcomment`.
+  listings. It comes from `environ` via `\NewEnviron`, which collects the body
+  into `\BODY`; `\templateguidanceoff` re-defines it to discard that body.
+  `environ` was chosen over the `comment` package, which does the same job by
+  round-tripping each block through a `comment.cut` file written beside the
+  sources on every build.
 - **A heading whose entire body is guidance must go inside the environment.**
   Otherwise `\templateguidanceoff` leaves an empty heading behind. Check both
   states after touching the front matter: build once as-is, once with
   `\templateguidanceoff` uncommented, and read the second one.
-- The package round-trips each block through `comment.cut`. Harmless, ignored.
+- Because the body is collected as tokens, **inline verbatim would break it**.
+  Guidance blocks are template-authored, so this has not come up; use
+  `\javaimport` and friends, which read from `listings/`, rather than a
+  `verbatim` environment.
 
 ## Traps
 
