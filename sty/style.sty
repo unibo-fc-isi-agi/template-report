@@ -10,7 +10,7 @@
 \usepackage{graphicx}
 \usepackage{natbib}
 \usepackage{url}
-\usepackage{environ}
+\usepackage{comment}
 \usepackage{code-listings}
 \usepackage{course}
 \usepackage{hyperref}
@@ -22,6 +22,9 @@
 \graphicspath{{img/}}
 % a mail address, typeset and linked
 \newcommand{\emailaddr}[1]{\href{mailto:#1}{\texttt{#1}}}
-% instructions to the student: block content, removed by \templateguidanceoff
-\NewEnviron{guidance}{\begingroup\small\itshape\BODY\par\endgroup}
-\newcommand{\templateguidanceoff}{\RenewEnviron{guidance}{}}
+% instructions to the student: typeset as read, so verbatim inside is safe
+\newenvironment{guidance}{\begingroup\small\itshape}{\par\endgroup}
+% ... and dropped wholesale by comment's scanner, which discards without a file
+\newcommand{\templateguidanceoff}{%
+  \let\guidance\undefined\let\endguidance\undefined
+  \excludecomment{guidance}}

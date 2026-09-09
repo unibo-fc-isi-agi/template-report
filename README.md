@@ -104,9 +104,10 @@ Two consequences worth knowing:
   *How to use this template* and *Quick LaTeX suggestions* have their
   `\section*` inside the block, while *Disclaimer* — which has real content —
   does not.
-- The environment comes from `environ`, which collects the block into a macro.
-  It leaves no scratch file behind — an earlier version used the `comment`
-  package, which rewrote a `comment.cut` beside the sources on every build.
+- With the guidance on, `guidance` is an ordinary environment: its body is
+  typeset as it is read, so anything may appear inside it, verbatim included.
+  With it off, the `comment` package's scanner swallows the body — it discards
+  rather than re-reading, so no scratch file is written either way.
 
 ## The bibliography
 
