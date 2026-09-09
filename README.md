@@ -99,6 +99,24 @@ Leave them on while you write; turn them off for the version you hand in. Do
 not delete them by hand — that way you can turn them back on if you need to
 check what a section was asking for.
 
+## Names and acronyms
+
+`sty/names.sty` declares the acronyms and the names of the course, so that each
+is written the same way everywhere. Anything with a long form is an
+[`acro`](https://ctan.org/pkg/acro) acronym, used through acro's own commands:
+
+```latex
+\ac{mas}    % multi-agent system (MAS) the first time, MAS from then on
+\acs{mas}   % MAS          \acl{mas}  % multi-agent system
+\acf{mas}   % the full form, wherever the first use fell
+\acs*{mas}  % the short form in a heading, without spending the first use
+```
+
+Anything with no long form is pure typography and is a plain macro in the same
+file — `\jason`, `\tuprolog`, `\respect`, `\apice`. Declare what your report
+needs there, delete what it does not use, and take anything else you need from
+the `sty/names.sty` of the course slides.
+
 ## The bibliography
 
 Cite with `\cite`, giving the key of an entry in `bib/references.bib`. Two

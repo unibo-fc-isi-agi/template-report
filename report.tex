@@ -58,13 +58,15 @@ When the report is written, uncomment \texttt{\textbackslash templateguidanceoff
 \section*{Quick \LaTeX{} suggestions}
 
 \begin{itemize}
-  \item \textbf{Cite} with \texttt{\textbackslash cite}, giving the BibTeX key of an entry of \texttt{bib/references.bib}, as in \cite{rao-agentspeak96}. Ready-made entries for most computer science papers are on \href{https://dblp.org/}{DBLP}; entries for the papers of the course are on \href{https://apice.unibo.it/}{APICe}.
+  \item \textbf{Cite} with \texttt{\textbackslash cite}, giving the BibTeX key of an entry of \texttt{bib/references.bib}, as in \cite{book-woa25y}. Ready-made entries for most computer science papers are on \href{https://dblp.org/}{DBLP}; entries for the papers of the course are on \href{https://apice.unibo.it/}{\apice}.
 
   \item \textbf{Float} figures, tables, and listings: put them in a \texttt{figure} or \texttt{lstlisting} environment and let \LaTeX{} place them. Do \emph{not} write placement hints such as \texttt{[h]} or \texttt{[h!]}. Label them, and reference the label with \texttt{\textbackslash Cref} – as in \Cref{fig:universe} and \Cref{lst:snippet} – rather than writing ``the figure below''. Figures go in \texttt{img/}, code in \texttt{listings/}.
 
   \item \textbf{Never break a line} with \texttt{\textbackslash\textbackslash} or \texttt{\textbackslash newline}. Leave a blank line to start a new paragraph; the indentation that follows is deliberate, and is how \LaTeX{} marks the paragraph break.
 
   \item \textbf{One sentence per source line}, with \texttt{\%} between the sentences of a paragraph, keeps diffs readable when the report is under version control.
+
+  \item \textbf{Name things once}: the acronyms and the names of the course are declared in \texttt{sty/names.sty}. \texttt{\textbackslash ac\{mas\}} writes ``multi-agent system (MAS)'' the first time and ``MAS'' from then on, so the expansion is never missing and never repeated; \texttt{\textbackslash acs}, \texttt{\textbackslash acl} and \texttt{\textbackslash acf} force the short, the long and the full form, and the starred \texttt{\textbackslash acs*} is the one for a heading, where the short form should print without spending the first use. Names with no long form – \texttt{\textbackslash jason}, \texttt{\textbackslash tuprolog}, \texttt{\textbackslash apice} – are plain macros in the same file. Add what you need there, and delete what you do not use.
 
   \item \textbf{Be consistent with notation}: $X$, X, $\mathbf{X}$, $\mathcal{X}$ and \texttt{X} are different symbols and should not denote the same thing.
 \end{itemize}
@@ -131,7 +133,7 @@ When the report is written, uncomment \texttt{\textbackslash templateguidanceoff
 \begin{itemize}
   \item Which notions of \coursetitlelong{} does the project rest on? 
   %
-  Be specific: e.g., computational logic and logic programming, the BDI model of agency, coordination and interaction, the treatment of truth and knowledge in intelligent systems, \ldots{}
+  Be specific: e.g., computational logic and logic programming, the \ac{bdi} model of agency, coordination and interaction, the treatment of truth and knowledge in intelligent systems, \ldots{}
 
   \item What is the \textbf{state of the art} the project positions itself against, and what does the project add to it?
 
@@ -143,7 +145,7 @@ When the report is written, uncomment \texttt{\textbackslash templateguidanceoff
 \end{itemize}
 \end{guidance}
 
-\section{Relevant agent and MAS features}
+\section{Relevant agent and \acs*{mas} features}
 \label{sec:features}
 
 \begin{guidance}
@@ -154,9 +156,9 @@ In this section, one should argue about which of the following are relevant to y
   what dimensions in terms of agent \emph{intelligence} and \emph{autonomy} does your system explore?
 
   \item \textbf{symbolic, subsymbolic, non-symbolic} – 
-  what sorts of AI techniques (symbolic, subsymbolic, non-symbolic) does your project leverage?
+  what sorts of \ac{ai} techniques (symbolic, subsymbolic, non-symbolic) does your project leverage?
   %
-  How do different sorts of AI techniques integrate in your project, for what reason, and towards which goal?
+  How do different sorts of \ac{ai} techniques integrate in your project, for what reason, and towards which goal?
 
   \item \textbf{goal-directedness and mental states} – 
   which mental abstractions do your agents exploit? 
@@ -164,19 +166,19 @@ In this section, one should argue about which of the following are relevant to y
   E.g., are beliefs, desires and intentions explicit in the model?
 
   \item \textbf{reactivity and situatedness} – 
-  what is the \emph{environment} in your multi-agent system?
+  what is the \emph{environment} in your \ac{mas}?
   %
   How does the agent perceive it and act upon it? 
   %
   Is the environment itself modelled as a first-class abstraction?
 
-  \item \textbf{sociality, interaction, coordination} – how many agents in your MAS, and how do they interact? 
+  \item \textbf{sociality, interaction, coordination} – how many agents in your \ac{mas}, and how do they interact? 
   %
   Which interaction protocol or coordination model or medium—message passing, tuple spaces, protocols?
   %
-  Who/what governs the interaction among agents?ì in the MAS?
+  Who/what governs the interaction among agents?ì in the \ac{mas}?
 
-  \item \textbf{reasoning and inference} – is agent reasoning symbolic, sub-symbolic or hybrid? 
+  \item \textbf{reasoning and inference} – is agent reasoning symbolic, subsymbolic or hybrid? 
   %
   Which logic, and why that one? 
   %
@@ -200,7 +202,7 @@ In this section, one should argue about which of the following are relevant to y
   %
   How do they represent, select, and exploit them in order to achieve their goals?
   
-  \item \ldots{} other agents and MAS features relevant to the course and explored by your project can also be listed here
+  \item \ldots{} other agents and \ac{mas} features relevant to the course and explored by your project can also be listed here
 \end{itemize}
 \end{guidance}
 
@@ -212,7 +214,7 @@ The core of the report.
 %
 A \emph{theoretical} project argues: definitions, model, claims, and the reasoning that supports them—and builds a technology artefact as a proof-of-concept.
 %
-A \emph{technological} project builds an intelligent system as a MAS, 
+A \emph{technological} project builds an intelligent system as a \ac{mas}, 
 %
 A \emph{methodological} project prescribes: the method, its steps, the conditions under which it applies, and what it costs to follow—and builds a technology artefact as a case study.
 
