@@ -10,8 +10,11 @@ A student-facing LaTeX **template**, not a document. Two consequences:
 - Keep the surface small. Every package added here is a package a student may
   have to debug on whatever TeX installation they happen to use.
 - Prose in the template is *instruction to the student*, and belongs in a
-  `\guidance{…}` box so `\templateguidanceoff` can remove it. Do not write
+  `guidance` environment so `\templateguidanceoff` can remove it. Do not write
   instructions as ordinary body text.
+- Prefer **probing questions** to descriptive prose. "What is the environment,
+  and how does the agent perceive it?" is usable; "this section describes the
+  environment" is not.
 
 ## House rules that apply here
 
@@ -23,6 +26,16 @@ A student-facing LaTeX **template**, not a document. Two consequences:
   and never invent an entry: copy from the course bibliography
   (`ia2627-slides/bib/ia.bib`) and keep the key and the `apice` field.
 - Markdown must pass markdownlint cleanly before the work is called done.
+
+## The guidance environment
+
+- It is an environment, not a macro, so it can carry lists, figures and
+  listings. It comes from the `comment` package via `\specialcomment`.
+- **A heading whose entire body is guidance must go inside the environment.**
+  Otherwise `\templateguidanceoff` leaves an empty heading behind. Check both
+  states after touching the front matter: build once as-is, once with
+  `\templateguidanceoff` uncommented, and read the second one.
+- The package round-trips each block through `comment.cut`. Harmless, ignored.
 
 ## Traps
 

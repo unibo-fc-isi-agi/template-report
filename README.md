@@ -35,26 +35,63 @@ so it builds unchanged on any standard TeX installation. Output is
 ## The three kinds of project
 
 The course admits **theoretical**, **technological** and **methodological**
-projects, and they do not fill a report in the same way. The section skeleton is
-therefore a common spine — goal, background, contribution, validation,
-conclusions — rather than the software-engineering pipeline of the template this
-one derives from. Each section carries a `\guidance` box saying what it expects
-from each of the three kinds, and *Design*, *Implementation* and *Deployment and
-usage* are marked as belonging to technological projects only.
+projects, and they do not fill a report in the same way. The skeleton is
+therefore a common spine, with per-kind notes in every section, and
+*Design*, *Implementation* and *Deployment and usage* marked as belonging to
+technological projects only.
 
 Sections that do not apply should be **dropped, not left empty**.
 
+The spine is: Concept -> Background -> Relevant agent and MAS features ->
+Contribution -> Validation -> Deployment and usage -> Self-evaluation ->
+Conclusions -> Future works, preceded by a Disclaimer and, while drafting, by
+two removable sections of instructions.
+
+### Relevant agent and MAS features
+
+The one section with no counterpart in the templates this derives from, and the
+reason for the rewrite. It asks the student to argue which agent-oriented
+features bear on the project **and which do not** — autonomy and agency,
+goal-directedness and mental state, reactivity and situatedness, sociality and
+coordination, reasoning and inference, knowledge and truth, learning and
+adaptation, openness and heterogeneity, organisation and norms.
+
+The exclusions carry as much weight as the inclusions: a feature dismissed with
+a reason shows the design was thought about, and what is claimed here is what
+*Contribution* then has to deliver. The list follows the vocabulary of the
+course itself, so it should be revised as the course's own material settles.
+
 ## The guidance boxes
 
-Every instruction in the template is wrapped in `\guidance{…}`, typeset small and
-italic. Once the report is written, one line in the preamble removes them all:
+Every instruction to the student sits in a `guidance` environment, typeset small
+and italic:
+
+```latex
+\begin{guidance}
+  ... instructions, lists and examples ...
+\end{guidance}
+```
+
+It is an environment rather than a macro so that it can hold lists, figures and
+listings. Uncommenting one line in the preamble removes every one of them:
 
 ```latex
 \templateguidanceoff
 ```
 
 This keeps a single source: there is no separate "instructions" and "clean"
-variant of the template to drift apart.
+variant of the template to drift apart. With the guidance on the document is
+6 pages; with it off, 2 — the bare skeleton plus the disclaimer.
+
+Two consequences worth knowing:
+
+- A heading whose whole body is guidance must sit **inside** the environment,
+  or turning guidance off leaves an empty heading behind. This is why
+  *How to use this template* and *Quick LaTeX suggestions* have their
+  `\section*` inside the block, while *Disclaimer* — which has real content —
+  does not.
+- The environment comes from the `comment` package, which round-trips the block
+  through a `comment.cut` scratch file. It is git-ignored already.
 
 ## The bibliography
 
@@ -76,8 +113,19 @@ Two traps live here, both of which cost a build during setup:
 
 ## Provenance
 
-Derived from [`pikalab-unibo/report-template`](https://github.com/pikalab-unibo/report-template),
-the final-report template of the Distributed Systems courses. Kept from it: the
-`listings` configuration and import macros, the Prolog style, the `.gitignore`,
-the stylistic notes, and the version macros. Rewritten: the section skeleton,
-the course identity, the style layer, and the bibliography.
+Derived from two Distributed Systems report templates.
+
+From [`pikalab-unibo/report-template`](https://github.com/pikalab-unibo/report-template),
+the original starting point: the `listings` configuration and import macros, the
+Prolog style, the `.gitignore`, and the version macros.
+
+From [`unibo-fc-isi-ds/template-final-report`](https://github.com/unibo-fc-isi-ds/template-final-report),
+the newer one, the *shape* rather than the content: guidance written as probing
+questions instead of prose, a features section that asks what is relevant and
+what is not, an AI-and-tools disclaimer, LaTeX advice moved to the front where
+it is read before it is needed, self-evaluation for group work, and future works
+as a section of its own.
+
+Neither is followed on structure. Both are built around a single software
+pipeline — requirements, design, deployment, tests — which fits only the
+technological third of what this course admits.
