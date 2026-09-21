@@ -7,7 +7,7 @@ Ciatto, DISI, Alma Mater Studiorum – Università di Bologna.
 The project is optional and worth up to 6/30. It must cover, or follow from, a
 specific topic of the course, and it must be agreed with the teachers
 beforehand. See the
-[Projects page on APICe](https://apice.unibo.it/xwiki/bin/view/Course/Iag2627/Projects).
+[Projects page on APICe](https://apice.unibo.it/bin/view/Course/Iag2627/Projects).
 
 ## Getting started
 
