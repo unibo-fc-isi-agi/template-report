@@ -1,0 +1,38 @@
+name: Sync from GitLab upstream
+on:
+  schedule:
+    - cron: '0 3 * * *' # Every day at 3:00 AM UTC
+  workflow_dispatch:
+
+permissions: { }
+
+jobs:
+  sync:
+    # Only in the original repo: copies made from this template skip it
+    if: github.repository == 'unibo-fc-isi-agi/template-report'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up SSH key for GitLab
+        env:
+          GITLAB_SSH_KEY: ${{ secrets.GITLAB_SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$GITLAB_SSH_KEY" > ~/.ssh/id_gitlab
+          chmod 600 ~/.ssh/id_gitlab
+          ssh-keyscan gitlab.disi.unibo.it >> ~/.ssh/known_hosts
+          echo "GIT_SSH_COMMAND=ssh -i ~/.ssh/id_gitlab -o IdentitiesOnly=yes" >> "$GITHUB_ENV"
+
+      - name: Pull --rebase from GitLab and force push
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git pull --rebase git@gitlab.disi.unibo.it:andrea.omicini/ia2627-reporttemplate.git main
+          git push --force-with-lease origin HEAD:main
