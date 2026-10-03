@@ -23,7 +23,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - uses: DanySK/compile-and-publish-all-latex@2.3.7
         with:
