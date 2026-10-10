@@ -1,5 +1,7 @@
 # Project report template — Intelligent Agents 2026/2027
 
+![IAg 2026/2027 course logo](logo/iag2627-tile-grey.svg)
+
 The LaTeX template for the report on the **optional project** of the course of
 Intelligent Agents, Academic Year 2026/2027 — Andrea Omicini and Giovanni
 Ciatto, DISI, Alma Mater Studiorum – Università di Bologna.
